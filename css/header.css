@@ -1,0 +1,100 @@
+
+.navbar {
+  position: fixed;
+  height: 80px;
+  width: 100%;
+  /*overflow: hidden;*/
+  top: 0;
+  align-items: center;
+  background: #f1f1f1;
+  -webkit-box-shadow: 0 8px 6px -6px #999;
+  -moz-box-shadow: 0 8px 6px -6px #999;
+  box-shadow: 0px 8px 8px -6px rgba(0,0,0,.5);
+  z-index: 9999;
+}
+
+.topnav {
+  position: relative;
+  top: 10%;
+  margin-left: 24%;
+  overflow: hidden;
+  background-color: #f1f1f1;
+  display: block;
+}
+  
+  .topnav a {
+    padding: 20px 20px 20px 15px;
+    margin-left: 1%;
+    float: left;
+    display: block;
+    color: #333;
+    text-align: center;
+    text-decoration: none;
+    font-size: 90%;
+  }
+  
+  .topnav a:hover {
+    background-color: #333;
+    color: #f1f1f1;
+  }
+  
+  .topnav a.active {
+    background-color: #04AA6D;
+    color: white;
+  }
+  
+  .topnav .icon {
+    display: none;
+  }
+  
+  .logo {
+    margin-left: 20px;
+    width: 275px;
+    height: 60px;
+    font-size: 1.5rem;
+    position: absolute;
+    top: 12%;
+    background: url('../Media/Icons/Logo.png') no-repeat;
+    background-size: cover;
+    background-position: 50% 50%;
+    display: block;
+  }
+
+  .banner {
+		width: 100%;
+		height: 600px;
+    background: url("../Media/Background/placement_banner_1.jpg") no-repeat;
+    border-radius: 5%;
+    margin: 3% 1% 1% 2%;
+		z-index : 20;
+		padding-top: 5%;
+	  }
+
+  #profilepic {
+    transition: transform .2s;
+  }
+  #profilepic:hover {
+    transform: scale(1.3);
+  }
+  @media screen and (max-width: 1200px) {
+    .topnav a:not(:first-child) {display: none;}
+    .topnav a.icon {
+      float: right;
+      display: block;
+    }
+  }
+  
+  @media screen and (max-width: 1200px) {
+    .topnav.responsive {position: relative;}
+    .topnav.responsive .icon {
+      position: absolute;
+      right: 0;
+      top: 0;
+    }
+    .topnav.responsive a {
+      float: none;
+      overflow: hidden;
+      display: block;
+      text-align: left;
+    }
+  }

@@ -1,0 +1,42 @@
+#menu {
+    background-color: rgba(235, 235, 205, .94);
+    padding: 25px 0px 50px 0px;
+    margin: -100px 15px 0px 15px;
+    align-items: center;
+  }
+  #container{
+      position: relative;
+      top: 30%;
+      left:2%;
+      margin-top: -100px;
+      display:flex;
+      margin: auto;
+      align-items: center;
+    }
+    .menu_buttons {
+      background-color: #37a69b/*#4CAF50*/;
+      position: relative;
+      border: 2px solid;
+      border-radius: 40px;
+      color: white;
+      padding: 1px 32px;
+      font-size: 24px;
+      margin: 4px 2px;
+      cursor: pointer;
+      padding: 60px;
+      margin-left: 90px;
+      transition: transform .2s;
+    }
+    .menu_buttons:hover{
+      box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+      border-radius: 5%;
+      border: 2px solid;
+      background-color:#FF7F50;
+    }
+    .menu_buttons:hover {
+      transform: scale(1.2); 
+    }
+#recruiter_login {
+    position: relative;
+    background-color: #a4ccc8;
+}

@@ -1,0 +1,77 @@
+<web-app>
+
+    <servlet>
+        <servlet-name>Servlet_1</servlet-name>
+        <servlet-class>Servlet_1</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>Servlet_1</servlet-name>
+        <url-pattern>/Servlet_1</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>JSP_Servlet_1</servlet-name>
+        <servlet-class>JSP_Servlet_1</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>JSP_Servlet_1</servlet-name>
+        <url-pattern>/JSP_Servlet_1</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>Recruiter</servlet-name>
+        <servlet-class>Recruiter</servlet-class>
+        <init-param>
+            <param-name>Email</param-name>
+            <param-value>recruitment@amigos.com</param-value>
+        </init-param>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Recruiter</servlet-name>
+        <url-pattern>/Recruiter</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>Applicant</servlet-name>
+        <servlet-class>Applicant</servlet-class>
+        <init-param>
+            <param-name>Email</param-name>
+            <param-value>applicant@amigos.com</param-value>
+        </init-param>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Applicant</servlet-name>
+        <url-pattern>/Applicant</url-pattern>
+    </servlet-mapping>
+
+    <context-param>
+        <param-name>Website-name</param-name>
+        <param-value>www.amigos.com</param-value>
+    </context-param>
+
+    <servlet>
+        <servlet-name>LoginApp</servlet-name>
+        <servlet-class>LoginApp</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>LoginApp</servlet-name>
+        <url-pattern>/LoginApp</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>ApplicantServlet</servlet-name>
+        <servlet-class>ApplicantServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>ApplicantServlet</servlet-name>
+        <url-pattern>/ApplicantServlet</url-pattern>
+    </servlet-mapping>
+
+
+    
+
+</web-app>
