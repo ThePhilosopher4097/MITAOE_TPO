@@ -97,11 +97,16 @@
   font-family: Garamond, serif; font:bold; font-size: 20px;
 }
 
-#company {
+#username {
   font-family: 'Arial Black', sans-serif;
   font-size: 2em;
-  color:white;
+  
+  color:#4b804e;
+  margin-left: 2%; 
+  margin-right:4%; 
+  font-size:18px;
 }
-#company:hover {
-  color:yellow;
+#username:hover {
+  color: #F07900;
+  background-color: #151515;
 }

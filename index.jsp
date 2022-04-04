@@ -37,6 +37,7 @@
 
 <% String User_logged_In = "" + session.getAttribute("Is_User_Logged_In"); 
    String LoggedUser = "" + session.getAttribute("LoggedUser"); 
+   String Logged_User_Type = "" + session.getAttribute("UserType"); 
    boolean IS_USER_LOGGED = User_logged_In.equals("true")?true:false;
    System.out.print("\nUsers_logged_In:"  +User_logged_In+" LoggedUser:"+LoggedUser+" IS_USER_LOGGED:"+IS_USER_LOGGED);
 %>
@@ -50,7 +51,7 @@
 		    <a href="#recruiter_login">Recruiter Login <i style='font-size:20px;margin-left:7px;' class='fas'>&#xf35a;</i> </a>
 		    <a href="#applicant_login">Applicant Login <i style='font-size:20px;margin-left:7px;' class='fas'>&#xf35a;</i> </a>
     <% } else { %>
-        <a href="#" id="company" style="color:#4b804e ;margin-left: 2%; margin-right:4%; font-size:18px;"> Welcome &nbsp;&nbsp; <%=LoggedUser.toUpperCase() %> !</a>    
+        <a href="#" id="username" style="color:#5cb860 ;margin-left: 2%; margin-right:4%; font-size:20px;text-shadow: 0 0 1px #e0c6c6, 0 0 1px #b8b8fa;"> Welcome &nbsp;&nbsp; <%=(LoggedUser.split(" ")[0]).toUpperCase() %> !</a>    
     <% } %>
     <a href="#team">View Available Jobs <i style='font-size:20px;margin-left:7px;' class='fas'>&#xf0b1;</i> </a>
     <a href="#team">About us <i style="font-size:20px;margin-left:7px;" class="fa">&#xf2b9;</i> </a>
@@ -111,23 +112,45 @@
             </form>
         </div>
         <br>
-        <% } else { %>
-          <div>
-            <form action="View/AddUser.jsp" method="post">
-              <input class="menu_buttons" type="submit" value="View Recruiters">
-            </form>
-          </div>
-          <div>
-            <form action="#post_jobs" method="post">
-              <input class="menu_buttons" type="submit" value="Post a new job">
-            </form>
-          </div>
-          <div>
-            <form action="#show_applicants" method="post">
-              <input class="menu_buttons" type="submit" value="Show Applicants">
-            </form>
-          </div>
-          <% } %>
+        <% } else { 
+                  if (Logged_User_Type.equals("recruiter")) {
+        %>
+                      <div style="margin-top:50px;margin-bottom:50px;">
+                        <form action="View/AddUser.jsp" method="post">
+                          <input class="menu_buttons" type="submit" value="View Active Jobs">
+                        </form>
+                      </div>
+                      <div style="margin-top:50px;margin-bottom:50px;">
+                        <form action="#post_jobs" method="post">
+                          <input class="menu_buttons" type="submit" value="Post a new job">
+                        </form>
+                      </div>
+                      <div style="margin-top:50px;margin-bottom:50px;">
+                        <form action="#show_applicants" method="post">
+                          <input class="menu_buttons" type="submit" value="Show Applicants">
+                        </form>
+                      </div>
+          <%      } else {
+          %>
+                      <div style="margin-top:50px;margin-bottom:50px;">
+                        <form action="View/AddUser.jsp" method="post">
+                          <input class="menu_buttons" type="submit" value="View Recruiters">
+                        </form>
+                      </div>
+                      <div style="margin-top:50px;margin-bottom:50px;">
+                        <form action="#post_jobs" method="post">
+                          <input class="menu_buttons" type="submit" value="Apply for a Job">
+                        </form>
+                      </div>
+                      <div style="margin-top:50px;margin-bottom:50px;">
+                        <form action="#show_applicants" method="post">
+                          <input class="menu_buttons" type="submit" value="My Applied Jobs">
+                        </form>
+                      </div>
+          <%
+                  }
+              }
+          %>
     </div>
     </center>
   </div>
@@ -170,7 +193,7 @@
         <div class="function_1">
           <form action="View/Login.jsp" method="post">
             <input type="hidden" name="login_type" id="login_type" value="applicant">
-            <span class="lp">Email ID : </span><input class="login-input" type="text" placeholder="Enter Student Email ID" id="applicant_email" name="email">  <br>
+            <span class="lp">PRN Number : </span><input class="login-input" type="text" placeholder="Enter Student PRN" id="applicant_prn" name="prn">  <br>
             <span class="lp">Password : </span><input class="login-input" type="password" placeholder="Enter Password" id="applicant_password" name="password">  
             <input class="login" type="submit" name="submit" id="submit" value="Login">
             <br>
@@ -184,6 +207,7 @@
           %>
         </div>
         <div class="shadow"></div>
+        <center><h2 style="color: red;"><%=Applicant_login_error%><br><%=Applicant_login_msg%> </h2></center>
       </center>
       </div>
   <% } %>

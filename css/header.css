@@ -3,7 +3,7 @@
   position: fixed;
   height: 80px;
   width: 100%;
-  /*overflow: hidden;*/
+  overflow-x: hidden;
   top: 0;
   align-items: center;
   background: #f1f1f1;
@@ -46,7 +46,7 @@
   .topnav .icon {
     display: none;
   }
-  
+
   .logo {
     margin-left: 20px;
     width: 275px;
