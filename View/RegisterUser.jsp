@@ -34,11 +34,14 @@
 
         System.out.println("\nStatus = "+status);
         if (status>0){
-            response.sendRedirect("Success.jsp");
+            if (type.equals("recruiter"))
+                response.sendRedirect("Success.jsp?ForWhat=register");
+            else
+                response.sendRedirect("Success.jsp?ForWhat=register");
         }else {
             response.sendRedirect("Error.jsp");
         }
-        System.out.println("\nStatus = "+status+"\ntype = "+type);
+        
     } catch(Exception e) {
         System.out.println("Exception: "+e);
     }

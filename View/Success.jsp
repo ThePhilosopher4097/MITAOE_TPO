@@ -1,9 +1,12 @@
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1" %>
 
 <%
 
     String type = (String)session.getAttribute("user_type");
+    String userid = request.getParameter("userid");
     String background = (String)session.getAttribute("bg_url");
+    String forwhat = request.getParameter("ForWhat");
 
 %>
 <html>
@@ -66,16 +69,26 @@
     
     <body background="<%=background %>">
         <center>
-            <p style="color:green; font-weight: bold; font-size:20px;">Record inserted Successfully !</p>
+            <p style="color:green; font-weight: bold; font-size:20px;"><%=userid==null?"User Registered":"Record Updated"%> Successfully !</p>
         <hr>
-            <h2><%=type.equals("recruiter")?"Recruiter Details":"Fill Applicant Details"%></h2>
+            <h2><%=type.equals("recruiter")?"Recruiter Details":"Applicant Details"%></h2>
         <hr>
         </center>
         
-        <jsp:include page="UserForm.jsp"/> 
-        
-    
-        
+        <c:set var = "Type" scope = "session" value = "<%=type %>"/>
+        <c:set var = "Userid" scope = "session" value = "<%=userid %>"/>
+        <c:set var = "Forwhat" scope = "session" value = "<%=forwhat %>"/>
+
+        <c:if test="${Forwhat eq 'register'}">
+            <jsp:include page="UserForm.jsp"/> 
+        </c:if>
+        <c:if test="${Forwhat eq 'update'}">
+            <jsp:include page="EditForm.jsp">
+                <jsp:param name="id" value="${Userid}"/>
+                <jsp:param name="type" value="${Type}"/>
+                <jsp:param name="from" value="success"/>
+            </jsp:include>
+        </c:if>
     
     </body>
 </html>

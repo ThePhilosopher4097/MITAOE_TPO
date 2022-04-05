@@ -75,7 +75,7 @@
 <%    
         String id = request.getParameter("id");
         String type = request.getParameter("type");
-        
+        String from = request.getParameter("from");
         String background = (String)session.getAttribute("bg_url");
         
 %>
@@ -83,9 +83,12 @@
 <body background="<%=background %>">
 
     <center>
-        <br><hr>
-            <h2>Edit <%=type.equals("recruiter")?"Recruiter":"Applicant" %> Details</h2>
-        <hr>
+        
+            <% if ((request.getParameter("from"))==null) { %>
+                <br><hr>
+                <h2>Edit <%=type.equals("recruiter")?"Recruiter":"Applicant" %> Details</h2>
+                <hr>
+            <% } %>
     </center>
 
     <div id="form_div">
@@ -124,7 +127,7 @@
             %>
             <div id="submit_div">
                 <input id="btn" style="background-color: #4CAF50;" type="Submit" name="submit" value="Add Changes"> &nbsp;&nbsp;&nbsp;&nbsp;
-                <a href='<%=type.equals("recruiter")?"ViewRecruiter.jsp":"ViewApplicant.jsp" %>'><input id="btn" type="button" style="background-color: grey" name="clear" value="Cancel"></a>
+                <a href='<%=type.equals("recruiter")?"ViewRecruiter.jsp":"ViewApplicant.jsp" %>'><input id="btn" type="button" style="background-color: grey" name="clear" value='<%=from==null?"Cancel":"Go Back" %>'></a>
             </div>
             <br>
         </form>

@@ -26,7 +26,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><%=type.equals("recruiter")?"Recruiter Form":"Fill Applicant Form"%></title>
+    <title><%=type.equals("recruiter")?"Recruiter Form":"Applicant Form"%></title>
     <style>
         body{
             background-repeat: no-repeat;
@@ -85,7 +85,7 @@
 <body background="<%=background %>">
     <center>
     <br><hr>
-        <h2><%=type.equals("recruiter")?"Recruiter Details":"Fill Applicant Details"%></h2>
+        <h2><%=type.equals("recruiter")?"Fill Recruiter Details":"Fill Applicant Details"%></h2>
     <hr>
     </center>
     

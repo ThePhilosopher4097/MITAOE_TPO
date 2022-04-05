@@ -38,13 +38,13 @@
     if (status>0){
         if (type.equals("Recruiter")){
             session.setAttribute("user_type", "recruiter");
-            session.setAttribute("bg_url", "../Media/Icons/recruiter.jpg");
-            response.sendRedirect("Success.jsp");
+            session.setAttribute("bg_url", "../Media/Icons/recruiter.png");
+            response.sendRedirect("Success.jsp?userid="+request.getParameter("id")+"&ForWhat=update");
         }
         else {
             session.setAttribute("user_type", "applicant");
-            session.setAttribute("bg_url", "../Media/Icons/applicant.jpg");
-            response.sendRedirect("Success.jsp");
+            session.setAttribute("bg_url", "../Media/Icons/candidate.png");
+            response.sendRedirect("Success.jsp?userid="+request.getParameter("prn")+"&ForWhat=update");
         }
     }else {
         response.sendRedirect("Error.jsp");
