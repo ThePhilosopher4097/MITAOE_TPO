@@ -22,6 +22,7 @@
             if (R!=null && ((String)R.getPassword()).equals(Password)){
                 session.setAttribute("LoggedUser", User);
                 session.setAttribute("UserType", UserType);
+                session.setAttribute("UserID", UserEmail);
                 session.setAttribute("VisitCount", 0);
                 session.setAttribute("Is_User_Logged_In", "true");
                 response.sendRedirect("/AJ5/index.jsp?UserEmail="+UserEmail+"&UserType="+UserType+"&User="+User);
@@ -40,6 +41,7 @@
             if (A!=null && ((String)A.getPassword()).equals(Password)){
                 session.setAttribute("LoggedUser", User);
                 session.setAttribute("UserType", UserType);
+                session.setAttribute("UserID", PRN);
                 session.setAttribute("VisitCount", 0);
                 session.setAttribute("Is_User_Logged_In", "true");
                 response.sendRedirect("/AJ5/index.jsp?UserPRN="+PRN+"&UserType="+UserType+"&User="+User);

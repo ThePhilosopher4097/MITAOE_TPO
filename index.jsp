@@ -37,6 +37,7 @@
 
 <% String User_logged_In = "" + session.getAttribute("Is_User_Logged_In"); 
    String LoggedUser = "" + session.getAttribute("LoggedUser"); 
+   String UserID = "" + session.getAttribute("UserID"); 
    String Logged_User_Type = "" + session.getAttribute("UserType"); 
    boolean IS_USER_LOGGED = User_logged_In.equals("true")?true:false;
    System.out.print("\nUsers_logged_In:"  +User_logged_In+" LoggedUser:"+LoggedUser+" IS_USER_LOGGED:"+IS_USER_LOGGED);
@@ -121,7 +122,8 @@
                         </form>
                       </div>
                       <div style="margin-top:50px;margin-bottom:50px;">
-                        <form action="#post_jobs" method="post">
+                        <form action="View/PostJob.jsp" method="post">
+                          <input type="hidden" name="RecruiterEmail" value="<%=UserID %>">
                           <input class="menu_buttons" type="submit" value="Post a new job">
                         </form>
                       </div>
@@ -133,7 +135,7 @@
           <%      } else {
           %>
                       <div style="margin-top:50px;margin-bottom:50px;">
-                        <form action="View/AddUser.jsp" method="post">
+                        <form action="View/ViewRecruiter.jsp" method="post">
                           <input class="menu_buttons" type="submit" value="View Recruiters">
                         </form>
                       </div>
