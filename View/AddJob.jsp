@@ -12,7 +12,6 @@
         <jsp:setProperty property="*" name="j1"/>
     <% 
         status = JobDBC.saveJob(j1);
-    }
 
         System.out.println("\nStatus = "+status);
         if (status>0){

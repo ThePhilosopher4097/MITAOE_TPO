@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1" %>
 <%@ page import="java.time.format.DateTimeFormatter" %>
 <%@ page import="java.time.LocalDateTime" %>
-<%@ page import="java.text.DateFormatSymbols" %>
+<%@ page import="java.text.*" %>
 <%@ page import="java.util.*" %>
 <%@ page import="services.Recruiter" %>
 <%@ page import="services.RecruiterDBC" %>
@@ -89,6 +89,10 @@
 <%
     String RecruiterEmail = request.getParameter("RecruiterEmail");
     Recruiter R = RecruiterDBC.getRecordByEmail(RecruiterEmail);
+
+    Date date = Calendar.getInstance().getTime();  
+    DateFormat dateFormat = new SimpleDateFormat("dd MMMM yyyy"");  
+    String today = dateFormat.format(date);  
 %>
 
 <body background="../Media/Icons/recruiter.jpg">
@@ -103,15 +107,15 @@
         <form action="AddJob.jsp" method="post">
 
             <input type="hidden" name="type" value="Recruiter"/>
-            <input type="hidden" name="recruiterid" value="<%=R.getId() %>"/>
             <input type="hidden" name="company" value="<%=R.getCompany() %>"/>
             Job Location : <input type="text" name="location"><br><br>
             Job Incharge : <input type="text" name="incharge"><br><br>
             Co-ordinator Email ID : <input type="text" name="email"><br><br>
             Co-ordinator Contact : <input type="text" name="contact"><br><br>
-            Job Title : <input type="text" name="title"><br><br>
-            Job Description : <textarea rows="4" cols="40" name="description"></textarea><br><br>
+            Job Title : <input type="text" name="jobtitle"><br><br>
+            Job Description : <textarea rows="4" cols="40" name="jobdescription"></textarea><br><br>
             Renumeration : <input type="text" name="renumeration"><br><br>
+            <input type="hidden" name="jobposteddate" value="<%=today %>"/>
            
             <div id="submit_div">
                 <input id="btn" style="background-color: #4CAF50;" type="Submit" name="submit" value="Post the Job"> &nbsp;&nbsp;&nbsp;&nbsp;
