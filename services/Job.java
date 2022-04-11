@@ -58,11 +58,11 @@ public class Job {
     public void setJobTitle(String JobTitle) {
         this.JobTitle = JobTitle;
     }
-    public void setRenumeration(String Renumeration) {
-        this.Renumeration = Renumeration;
-    }
     public void setJobDescription(String JobDescription) {
         this.JobDescription = JobDescription;
+    }
+    public void setRenumeration(String Renumeration) {
+        this.Renumeration = Renumeration;
     }
     public void setJobPostedDate(String JobPostedDate) {
         this.JobPostedDate = JobPostedDate;

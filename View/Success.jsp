@@ -7,6 +7,7 @@
     String userid = request.getParameter("userid");
     String background = (String)session.getAttribute("bg_url");
     String forwhat = request.getParameter("ForWhat");
+    String recruiter_email = "" + session.getAttribute("UserID"); 
 
 %>
 <html>
@@ -69,14 +70,20 @@
     
     <body background="<%=background %>">
         <center>
-            <p style="color:green; font-weight: bold; font-size:20px;"><%=userid==null?"User Registered":"Record Updated"%> Successfully !</p>
-        <hr>
-            <h2><%=type.equals("recruiter")?"Recruiter Details":"Applicant Details"%></h2>
-        <hr>
+            <c:if test="${Forwhat eq 'postjob'}">
+                <p style="color:green; font-weight: bold; font-size:20px;">Job Posted Successfully !</p>
+            </c:if>
+            <c:if test="${Forwhat ne 'postjob'}">
+                <p style="color:green; font-weight: bold; font-size:20px;"><%=userid==null?"User Registered":"Record Updated"%> Successfully !</p>
+                <hr>
+                    <h2><%=type.equals("recruiter")?"Recruiter Details":"Applicant Details"%></h2>
+                <hr>
+            </c:if>
         </center>
         
         <c:set var = "Type" scope = "session" value = "<%=type %>"/>
         <c:set var = "Userid" scope = "session" value = "<%=userid %>"/>
+        <c:set var = "RecruiterEmail" scope = "session" value = "<%=recruiter_email %>"/>
         <c:set var = "Forwhat" scope = "session" value = "<%=forwhat %>"/>
 
         <c:if test="${Forwhat eq 'register'}">
@@ -87,6 +94,11 @@
                 <jsp:param name="id" value="${Userid}"/>
                 <jsp:param name="type" value="${Type}"/>
                 <jsp:param name="from" value="success"/>
+            </jsp:include>
+        </c:if>
+        <c:if test="${Forwhat eq 'postjob'}">
+            <jsp:include page="PostJob.jsp?from=Success"> 
+                <jsp:param name="RecruiterEmail" value="${RecruiterEmail}"/>
             </jsp:include>
         </c:if>
     

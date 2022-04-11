@@ -21,7 +21,8 @@ public class JobDBC {
         int status = 0;
         try{
             Connection con = getConnection();
-            String query = "insert into job(company,location,incharge,email,contact,jobtitle,jobdescription,renumeration,jobposteddate) values (?, ?, ?, ?, ?, ?, ?, ?, ?)";
+            System.out.println("\nJob Title ----> "+J.getJobTitle());
+            String query = "insert into job (company,location,incharge,email,contact,jobtitle,jobdescription,renumeration,jobposteddate) values (?, ?, ?, ?, ?, ?, ?, ?, ?)";
             PreparedStatement ps = con.prepareStatement(query);
             ps.setString(1, J.getCompany());
             ps.setString(2, J.getLocation());
@@ -145,13 +146,13 @@ public class JobDBC {
         return J;
     }
 
-    public static Job getRecordByEmail(String Email) {
+    public static Job getRecordByCompany(String Company) {
         
         Job J = null;
         try{
             Connection con = getConnection();
-            PreparedStatement ps = con.prepareStatement("select * from job where email=?");
-            ps.setString(1, Email);
+            PreparedStatement ps = con.prepareStatement("select * from job where company=?");
+            ps.setString(1, Company);
             ResultSet rs = ps.executeQuery();
             while(rs.next()){
                 J = new Job();
@@ -168,7 +169,7 @@ public class JobDBC {
             }
         }catch(Exception e){
             System.out.println(e);
-            System.out.println("Exception in getRecordByEmail() !");
+            System.out.println("Exception in getRecordByCompany() !");
         }
         return J;
     }

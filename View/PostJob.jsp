@@ -88,10 +88,11 @@
 
 <%
     String RecruiterEmail = request.getParameter("RecruiterEmail");
+    String from = request.getParameter("from");
     Recruiter R = RecruiterDBC.getRecordByEmail(RecruiterEmail);
-
+    System.out.println("\nRecruiter -----> "+R.getCompany()+"  "+R.getId());
     Date date = Calendar.getInstance().getTime();  
-    DateFormat dateFormat = new SimpleDateFormat("dd MMMM yyyy"");  
+    DateFormat dateFormat = new SimpleDateFormat("dd MMMM yyyy");  
     String today = dateFormat.format(date);  
 %>
 
@@ -106,7 +107,7 @@
     <div id="form_div">
         <form action="AddJob.jsp" method="post">
 
-            <input type="hidden" name="type" value="Recruiter"/>
+            <input type="hidden" name="ForWhat" value="postjob"/>
             <input type="hidden" name="company" value="<%=R.getCompany() %>"/>
             Job Location : <input type="text" name="location"><br><br>
             Job Incharge : <input type="text" name="incharge"><br><br>
@@ -118,8 +119,8 @@
             <input type="hidden" name="jobposteddate" value="<%=today %>"/>
            
             <div id="submit_div">
-                <input id="btn" style="background-color: #4CAF50;" type="Submit" name="submit" value="Post the Job"> &nbsp;&nbsp;&nbsp;&nbsp;
-                <a href='javascript:history.back()'><input id="btn" type="button" style="background-color: grey" name="clear" value="Cancel"></a>
+                <input id="btn" style="background-color: #4CAF50;" type='Submit' name="submit" value="Post the Job"> &nbsp;&nbsp;&nbsp;&nbsp;
+                <a href='<%=(from==null)?"javascript:history.back()":"/AJ5/#menu" %>'><input id="btn" type="button" style="background-color: grey" name="clear" value="Go back"></a>
             </div>
             <br>
         </form>
