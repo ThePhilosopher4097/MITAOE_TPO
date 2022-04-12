@@ -54,7 +54,7 @@
     <% } else { %>
         <a href="#" id="username" style="color:#5cb860 ;margin-left: 2%; margin-right:4%; font-size:20px;text-shadow: 0 0 1px #e0c6c6, 0 0 1px #b8b8fa;"> Welcome &nbsp;&nbsp; <%=(LoggedUser.split(" ")[0]).toUpperCase() %> !</a>    
     <% } %>
-    <a href="#team">View Available Jobs <i style='font-size:20px;margin-left:7px;' class='fas'>&#xf0b1;</i> </a>
+    <a href="View/ViewJob.jsp">View Available Jobs <i style='font-size:20px;margin-left:7px;' class='fas'>&#xf0b1;</i> </a>
     <a href="#team">About us <i style="font-size:20px;margin-left:7px;" class="fa">&#xf2b9;</i> </a>
     <a href="#menu">Go to Main Menu <i style="font-size:20px;margin-left:7px;" class="fa">&#xf015;</i> </a>
     <% if (User_logged_In.equals("true")) { %>

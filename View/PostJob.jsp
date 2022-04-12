@@ -20,7 +20,7 @@
         body{
             background-repeat: no-repeat;
             background-size: 37%;
-            background-position:right 10% top 80%;
+            background-position:right 10% top 60%;
         }
         #form_div{
             margin-left: 100px;
@@ -96,7 +96,7 @@
     String today = dateFormat.format(date);  
 %>
 
-<body background="../Media/Icons/recruiter.jpg">
+<body background="../Media/Icons/job.jpg">
 
     <center>
         <br><hr>
